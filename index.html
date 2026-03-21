@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shift Creativ3 | Produção de Vídeo Profissional em Portugal</title>
+  <meta name="description" content="Produção de vídeos profissionais, reels, motion graphics e identidade visual para empresas em Portugal. Aumenta o teu engajamento com vídeos que vendem.">
+  <meta name="keywords" content="produção de vídeo portugal, vídeo marketing, reels empresas, motion graphics, vídeo publicitário portugal, agência vídeo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shiftcreativ3.com">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shiftcreativ3.com">
+  <meta property="og:title" content="Shift Creativ3 | Produção de Vídeo Profissional em Portugal">
+  <meta property="og:description" content="Produção de vídeos profissionais, reels, motion graphics e identidade visual para empresas em Portugal. Aumenta o teu engajamento com vídeos que vendem.">
+  <meta property="og:image" content="https://shiftcreativ3.com/logo.png">
+  <meta property="og:locale" content="pt_PT">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shift Creativ3 | Produção de Vídeo Profissional em Portugal">
+  <meta name="twitter:description" content="Produção de vídeos profissionais, reels, motion graphics e identidade visual para empresas em Portugal.">
+  <meta name="twitter:image" content="https://shiftcreativ3.com/logo.png">
+
+  <!-- Preconnect -->
+  
+  
+  
+
+  <!-- Phosphor Icons (defer) -->
+  
+  function openReel(url) {
+    window.open(url, '_blank');
+  }
+
+</script>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: '#47f1e4',
+            'teal-dark': '#00d4c8',
+            'teal-hover': '#00f0e0',
+            bg: '#0a0a0f',
+            surface: '#1b1b20',
+            'surface-high': '#1f1f25',
+            'surface-highest': '#35343a',
+            'surface-low': '#0e0e13',
+            txt: '#e8e8f0',
+            muted: '#9898a8',
+          },
+          fontFamily: { inter: ['Inter', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Shift Creativ3",
+    "description": "Produtora de vídeo premium portuguesa. Reels, motion graphics, vídeo publicitário e identidade visual.",
+    "url": "https://shiftcreativ3.com",
+    "logo": "https://shiftcreativ3.com/logo.png",
+    "telephone": "+351929071925",
+    "email": "geral@shiftcreativ3.com",
+    "address": { "@type": "PostalAddress", "addressCountry": "PT" },
+    "sameAs": ["https://instagram.com/shiftcreativ3"],
+    "serviceArea": { "@type": "Country", "name": "Portugal" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços de Vídeo",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reels Social" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vídeo Publicitário" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vídeo Imobiliário" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Motion Graphics" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Identidade Visual" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vídeo Corporativo" } }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #47f1e4; --teal-dark: #00d4c8; --teal-hover: #00f0e0;
+      --bg: #0a0a0f; --surface: #1b1b20; --surface-high: #1f1f25;
+      --surface-highest: #35343a; --surface-low: #0e0e13;
+      --text: #e8e8f0; --muted: #9898a8;
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; cursor: none; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--teal-dark); box-shadow: 0 0 8px #00d4c8; }
+
+    /* Cursor */
+    #cur-dot {
+      position: fixed; top: 0; left: 0; width: 8px; height: 8px;
+      background: var(--teal); border-radius: 50%; pointer-events: none; z-index: 9999;
+      transform: translate(-50%,-50%); box-shadow: 0 0 10px var(--teal);
+      transition: width .15s var(--ease), height .15s var(--ease);
+    }
+    #cur-ring {
+      position: fixed; top: 0; left: 0; width: 36px; height: 36px;
+      border: 1.5px solid rgba(71,241,228,.5); border-radius: 50%; pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: width .3s var(--ease), height .3s var(--ease), border-color .3s;
+    }
+    body.hov #cur-dot { width: 14px; height: 14px; }
+    body.hov #cur-ring { width: 56px; height: 56px; border-color: rgba(71,241,228,.8); }
+
+    /* Scroll bar top */
+    #spb {
+      position: fixed; top: 0; left: 0; height: 2px; z-index: 9997;
+      background: linear-gradient(90deg, var(--teal-dark), var(--teal));
+      box-shadow: 0 0 8px var(--teal-dark); transition: width .1s linear;
+    }
+
+    /* Loader */
+    #loader {
+      position: fixed; inset: 0; background: var(--bg);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      z-index: 99999; transition: opacity .6s var(--ease), visibility .6s;
+    }
+    #loader.gone { opacity: 0; visibility: hidden; }
+    #loader-logo { width: 72px; height: 72px; object-fit: contain; animation: pulse 1s ease-in-out infinite alternate; }
+    @keyframes pulse {
+      from { opacity: .4; transform: scale(.95); filter: drop-shadow(0 0 6px rgba(71,241,228,.3)); }
+      to   { opacity: 1;  transform: scale(1.05); filter: drop-shadow(0 0 18px rgba(71,241,228,.8)); }
+    }
+    #loader-txt { margin-top: 18px; font-size: 1rem; font-weight: 700; letter-spacing: 6px; text-transform: uppercase; color: var(--text); }
+    #loader-txt span { opacity: 0; display: inline-block; transition: opacity .15s; }
+
+    /* Matrix grid */
+    .mgrid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(71,241,228,.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(71,241,228,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Nav */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      background: rgba(10,10,15,.75);
+      border-bottom: 1px solid rgba(71,241,228,.06);
+    }
+    .nav-in {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 34px; object-fit: contain; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color .3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-r { display: flex; align-items: center; gap: 1rem; }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--teal-dark); color: #0a0a0f;
+      font-size: .75rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: .5rem 1.1rem; border-radius: 4px; text-decoration: none;
+      transition: background .3s var(--ease), box-shadow .3s;
+    }
+    .btn-wa:hover { background: var(--teal-hover); box-shadow: 0 0 20px rgba(0,212,200,.4); }
+    .lang-t { display: flex; gap: .2rem; }
+    .lang-b {
+      padding: .3rem .55rem; border-radius: 3px; cursor: pointer; border: none;
+      background: transparent; color: var(--muted); font-size: .7rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; transition: color .2s, background .2s;
+    }
+    .lang-b.on { color: var(--teal); background: rgba(71,241,228,.08); }
+    .ham {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    }
+    .ham span { width: 22px; height: 2px; background: var(--text); border-radius: 1px; transition: .3s; }
+    .mob-menu {
+      display: none; flex-direction: column;
+      background: rgba(10,10,15,.98); backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(71,241,228,.08);
+    }
+    .mob-menu a {
+      padding: 1rem 2rem; font-size: .8rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.04); transition: color .2s;
+    }
+    .mob-menu a:hover { color: var(--teal); }
+    .mob-menu.open { display: flex; }
+    @media(max-width:768px) { .nav-links, .lang-t { display: none; } .ham { display: flex; } }
+
+    /* Hero */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,212,200,.07) 0%, transparent 70%), var(--bg);
+    }
+    #hero-canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; }
+    .hero-c {
+      position: relative; z-index: 2; text-align: center;
+      max-width: 920px; padding: 0 2rem;
+    }
+    .hlabel {
+      font-size: .68rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 1.4rem; display: block;
+    }
+    .htitle {
+      font-size: clamp(3rem,9vw,7rem); font-weight: 900;
+      line-height: .95; letter-spacing: -3px; color: var(--text); margin-bottom: 1.4rem;
+    }
+    .htitle .ac { color: var(--teal); }
+    .hsub {
+      font-size: clamp(.95rem,2.5vw,1.2rem); font-weight: 300; color: var(--muted);
+      max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7;
+    }
+    .hctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+    .btn-p {
+      padding: .85rem 1.8rem; background: var(--teal-dark); color: #0a0a0f;
+      font-weight: 900; font-size: .82rem; letter-spacing: 2px; text-transform: uppercase;
+      border-radius: 4px; text-decoration: none; border: none; cursor: pointer;
+      transition: background .3s var(--ease), box-shadow .3s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-p:hover { background: var(--teal-hover); box-shadow: 0 0 28px rgba(0,212,200,.4); }
+    .btn-s {
+      padding: .85rem 1.8rem; background: transparent;
+      border: 1px solid rgba(71,241,228,.25); color: var(--teal);
+      font-weight: 700; font-size: .82rem; letter-spacing: 2px; text-transform: uppercase;
+      border-radius: 4px; text-decoration: none; cursor: pointer;
+      transition: border-color .3s var(--ease), background .3s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-s:hover { border-color: var(--teal); background: rgba(71,241,228,.06); }
+    .hstats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+    .stat-n { font-size: 2.5rem; font-weight: 900; color: var(--teal); letter-spacing: -1px; line-height: 1; }
+    .stat-l { font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+    .hscroll {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      font-size: .62rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--muted); z-index: 2; animation: sb 2s ease-in-out infinite;
+    }
+    .hscroll-line { width: 1px; height: 38px; background: linear-gradient(to bottom, var(--teal-dark), transparent); }
+    @keyframes sb { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* Section */
+    section { position: relative; }
+    .si { max-width: 1280px; margin: 0 auto; padding: 7rem 2rem; }
+    .slabel { font-size: .65rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+    .stitle { font-size: clamp(2rem,5vw,3.5rem); font-weight: 900; letter-spacing: -2px; line-height: 1; color: var(--text); margin-bottom: 1.4rem; }
+    .ssub { font-size: .95rem; font-weight: 300; color: var(--muted); line-height: 1.7; max-width: 520px; }
+
+    /* Portfolio */
+    #portfolio { background: var(--surface-low); }
+    .ph { text-align: center; margin-bottom: 3.5rem; }
+    .ph .ssub { margin: 0 auto; }
+    .bento {
+      display: grid; grid-template-columns: repeat(12,1fr); gap: 1rem;
+    }
+    .bc {
+      position: relative; overflow: hidden; border-radius: 6px;
+      background: var(--surface-high); cursor: pointer;
+      transition: transform .4s var(--ease), box-shadow .4s;
+    }
+    .bc:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+    .bc:nth-child(1) { grid-column: span 7; aspect-ratio: 16/9; }
+    .bc:nth-child(2) { grid-column: span 5; aspect-ratio: 4/3; }
+    .bc:nth-child(3) { grid-column: span 4; aspect-ratio: 1; }
+    .bc:nth-child(4) { grid-column: span 4; aspect-ratio: 1; }
+    .bc:nth-child(5) { grid-column: span 4; aspect-ratio: 1; }
+    .bc:nth-child(6) { grid-column: span 12; aspect-ratio: 21/6; }
+    @media(max-width:768px) { .bc:nth-child(n) { grid-column: span 12; aspect-ratio: 16/9; } }
+    .bbg { position: absolute; inset: 0; transition: transform .5s var(--ease); }
+    .bc:hover .bbg { transform: scale(1.06); }
+    .bov {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,15,.9) 0%, rgba(10,10,15,.2) 60%, transparent 100%);
+      opacity: .7; transition: opacity .4s;
+    }
+    .bc:hover .bov { opacity: 1; }
+    .bplay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .4s;
+    }
+    .bc:hover .bplay { opacity: 1; }
+    .pcircle {
+      width: 54px; height: 54px; border-radius: 50%;
+      border: 2px solid var(--teal); display: flex; align-items: center; justify-content: center;
+      background: rgba(0,212,200,.1); backdrop-filter: blur(8px);
+      transform: scale(.8); transition: transform .4s var(--ease), background .3s;
+    }
+    .bc:hover .pcircle { transform: scale(1); background: rgba(0,212,200,.2); }
+    .binfo {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 1.2rem;
+      transform: translateY(6px); transition: transform .4s var(--ease);
+    }
+    .bc:hover .binfo { transform: translateY(0); }
+    .btag { font-size: .58rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: .3rem; }
+    .btitle { font-size: .9rem; font-weight: 900; color: var(--text); letter-spacing: -.5px; }
+    .bc:nth-child(1) .bbg { background: linear-gradient(135deg,#0d1a2e,#1a2a4a 40%,#0f2030); }
+    .bc:nth-child(2) .bbg { background: linear-gradient(135deg,#1a0d2e,#2a1a4a); }
+    .bc:nth-child(3) .bbg { background: linear-gradient(135deg,#0d2e1a,#1a4a2a); }
+    .bc:nth-child(4) .bbg { background: linear-gradient(135deg,#2e1a0d,#4a2a1a); }
+    .bc:nth-child(5) .bbg { background: linear-gradient(135deg,#0d1a2e,#0a2040); }
+    .bc:nth-child(6) .bbg { background: linear-gradient(135deg,#1a0d0d,#2e1515 50%,#1a0d1a); }
+    .bc::before {
+      content:''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse at center,rgba(71,241,228,.04) 0%,transparent 70%);
+    }
+
+    /* Services */
+    #servicos { background: var(--bg); }
+    .sg { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3.5rem; }
+    @media(max-width:900px) { .sg { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:560px) { .sg { grid-template-columns: 1fr; } }
+    .sc {
+      background: var(--surface); border-radius: 6px; padding: 2rem;
+      border: 1px solid rgba(71,241,228,0); position: relative; overflow: hidden;
+      transition: transform .4s var(--ease), border-color .3s, box-shadow .4s;
+    }
+    .sc::after {
+      content:''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--teal-dark); transform: scaleX(0); transform-origin: left;
+      transition: transform .4s var(--ease);
+    }
+    .sc:hover { transform: translateY(-8px); border-color: rgba(71,241,228,.15); box-shadow: 0 0 40px rgba(0,212,200,.08); }
+    .sc:hover::after { transform: scaleX(1); }
+    .sico {
+      width: 50px; height: 50px; border-radius: 8px;
+      background: rgba(71,241,228,.08); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem; transition: transform .6s var(--ease);
+    }
+    .sc:hover .sico { transform: rotate(360deg); }
+    .sico i { font-size: 1.4rem; color: var(--teal); }
+    .sname { font-size: 1.05rem; font-weight: 900; letter-spacing: -.5px; color: var(--text); margin-bottom: .6rem; }
+    .sdesc { font-size: .85rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+    /* Process */
+    #processo { background: var(--surface-low); }
+    .ptl {
+      display: flex; gap: 0; margin-top: 3.5rem; position: relative;
+    }
+    .ptl::before {
+      content:''; position: absolute; top: 28px; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg,transparent,rgba(71,241,228,.3),transparent);
+    }
+    .ps { flex: 1; padding: 0 1.4rem; text-align: center; position: relative; }
+    .ps:first-child { padding-left: 0; }
+    .ps:last-child  { padding-right: 0; }
+    .pnum {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 1px solid rgba(71,241,228,.3); background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .68rem; font-weight: 900; color: var(--teal); letter-spacing: 1px;
+      margin: 0 auto 1.2rem; position: relative; z-index: 1;
+      transition: background .3s, box-shadow .3s;
+    }
+    .ps:hover .pnum { background: rgba(71,241,228,.1); box-shadow: 0 0 20px rgba(0,212,200,.2); }
+    .ptitle { font-size: .95rem; font-weight: 900; color: var(--text); margin-bottom: .4rem; }
+    .pdesc { font-size: .8rem; font-weight: 300; color: var(--muted); line-height: 1.6; }
+    @media(max-width:640px) { .ptl { flex-direction: column; gap: 2rem; } .ptl::before { display: none; } }
+
+    /* Testimonials */
+    #depoimentos { background: var(--bg); }
+    .tg { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3.5rem; }
+    @media(max-width:900px) { .tg { grid-template-columns: 1fr; } }
+    .tc {
+      background: var(--surface); border-radius: 6px; padding: 2rem;
+      border: 1px solid rgba(255,255,255,.04);
+      transition: transform .4s var(--ease), box-shadow .4s;
+    }
+    .tc:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+    .qmark { font-size: 3.5rem; font-weight: 900; color: var(--teal); line-height: .8; opacity: .3; margin-bottom: .8rem; }
+    .ttext { font-size: .9rem; font-weight: 300; color: var(--text); line-height: 1.75; margin-bottom: 1.5rem; }
+    .tauth { display: flex; align-items: center; gap: .75rem; }
+    .tav {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--surface-highest), var(--teal-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; font-weight: 900; color: var(--bg);
+    }
+    .taname { font-size: .85rem; font-weight: 900; color: var(--text); }
+    .tarole { font-size: .72rem; font-weight: 400; color: var(--muted); }
+
+    /* Contact */
+    #contacto { background: var(--surface-low); }
+    .cg { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+    @media(max-width:900px) { .cg { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .cii { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.2rem; }
+    .cii i { font-size: 1.2rem; color: var(--teal); flex-shrink: 0; }
+    .cil { font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .civ { font-size: .88rem; font-weight: 400; color: var(--text); }
+    .fg { margin-bottom: 1rem; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media(max-width:560px) { .frow { grid-template-columns: 1fr; } }
+    label { font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .4rem; }
+    input, select, textarea {
+      width: 100%; background: var(--surface-low); border: 1px solid rgba(71,241,228,.1);
+      border-radius: 4px; padding: .72rem 1rem; color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: .875rem; font-weight: 300; outline: none;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--teal-dark); box-shadow: 0 0 0 3px rgba(0,212,200,.08); }
+    select option { background: var(--surface-low); }
+    textarea { resize: vertical; min-height: 120px; }
+    .fsub { width: 100%; margin-top: .5rem; font-size: .82rem; letter-spacing: 2px; }
+    .fmsg { font-size: .78rem; margin-top: .75rem; padding: .7rem 1rem; border-radius: 4px; display: none; }
+    .fmsg.ok  { background: rgba(71,241,228,.08); color: var(--teal); border: 1px solid rgba(71,241,228,.2); display: block; }
+    .fmsg.err { background: rgba(255,80,80,.08); color: #ff8080; border: 1px solid rgba(255,80,80,.2); display: block; }
+
+    /* CTA Final */
+    #cta-final {
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,212,200,.06) 0%, transparent 70%), var(--bg);
+      text-align: center;
+    }
+    .ctit { font-size: clamp(2rem,5vw,3.5rem); font-weight: 900; letter-spacing: -2px; margin-bottom: 1rem; }
+    .csub { font-size: 1rem; font-weight: 300; color: var(--muted); margin-bottom: 2.5rem; }
+    .cbtns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-ig {
+      padding: .9rem 1.8rem; background: transparent;
+      border: 1px solid rgba(255,255,255,.12); color: var(--text);
+      font-weight: 700; font-size: .82rem; letter-spacing: 2px; text-transform: uppercase;
+      border-radius: 4px; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem;
+      transition: border-color .3s, background .3s;
+    }
+    .btn-ig:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.04); }
+
+    /* Footer */
+    footer { background: var(--surface-low); border-top: 1px solid rgba(71,241,228,.06); padding: 3rem 2rem 2rem; }
+    .fi { max-width: 1280px; margin: 0 auto; }
+    .ft { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.04); }
+    @media(max-width:768px) { .ft { grid-template-columns: 1fr; } }
+    .fb img { height: 28px; margin-bottom: 1rem; }
+    .fb p { font-size: .78rem; font-weight: 300; color: var(--muted); line-height: 1.7; max-width: 250px; }
+    .fct { font-size: .62rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+    .fl { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .fl a { font-size: .78rem; font-weight: 300; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .fl a:hover { color: var(--text); }
+    .fbot { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; flex-wrap: wrap; gap: .5rem; }
+    .fcp { font-size: .72rem; font-weight: 300; color: var(--muted); }
+    .fsoc { display: flex; gap: .6rem; }
+    .fsoc a {
+      width: 34px; height: 34px; border-radius: 4px;
+      border: 1px solid rgba(71,241,228,.12); display: flex; align-items: center; justify-content: center;
+      color: var(--muted); text-decoration: none; transition: border-color .3s, color .3s;
+    }
+    .fsoc a:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* Reveal */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; } .d5 { transition-delay: .5s; }
+  
+    
+
+  
+    
+
+  
+    .reels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+    @media(max-width:900px){.reels-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.reels-grid{grid-template-columns:1fr 1fr;gap:.75rem}}
+    .reel-card{display:block;text-decoration:none;border-radius:14px;overflow:hidden;background:var(--surface-low,#111);border:1px solid rgba(71,241,228,.08);transition:transform .4s cubic-bezier(.2,0,0,1),border-color .4s,box-shadow .4s;position:relative}
+    .reel-card:hover{transform:translateY(-10px) scale(1.02);border-color:rgba(71,241,228,.4);box-shadow:0 28px 56px rgba(0,0,0,.6),0 0 30px rgba(71,241,228,.15)}
+    .reel-thumb{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .reel-cinema-bg{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.8) 100%)}
+    .reel-center-icon{font-size:3.5rem;color:rgba(71,241,228,.25);transition:all .4s;position:relative;z-index:1}
+    .reel-card:hover .reel-center-icon{opacity:0;transform:scale(.5)}
+    .reel-hover-state{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;opacity:0;transition:opacity .4s;z-index:2}
+    .reel-card:hover .reel-hover-state{opacity:1}
+    .reel-play-ring{width:72px;height:72px;border-radius:50%;border:2px solid #47f1e4;display:flex;align-items:center;justify-content:center;background:rgba(71,241,228,.12);backdrop-filter:blur(8px)}
+    .reel-cta-text{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff}
+    .reel-corner-ig{position:absolute;top:12px;right:12px;font-size:1.2rem;color:rgba(71,241,228,.6);z-index:3}
+    .reel-info{padding:1rem 1.1rem 1.1rem;display:flex;flex-direction:column;gap:.3rem}
+    .reel-tag{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#47f1e4}
+    .reel-title{font-size:.95rem;font-weight:700;color:#e4e1e9;line-height:1.3;flex:1}
+    .reel-arrow{font-size:1rem;color:rgba(71,241,228,.5);transition:transform .3s}
+    .reel-card:hover .reel-arrow{transform:translate(3px,-3px);color:#47f1e4}
+
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a0f'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='Arial' font-weight='900' fill='%2347f1e4'>S</text></svg>">
+</head>
+<body>
+
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+<div id="spb" style="width:0%"></div>
+
+<!-- Loader -->
+<div id="loader">
+  <img src="logo.png" alt="Shift Creativ3" id="loader-logo">
+  <div id="loader-txt"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#hero" class="nav-logo"><img src="logo.png" alt="Shift Creativ3" loading="lazy"></a>
+    <ul class="nav-links">
+      <li><a href="#portfolio" data-i="nav.portfolio">Portfolio</a></li>
+      <li><a href="#servicos" data-i="nav.services">Serviços</a></li>
+      <li><a href="#processo" data-i="nav.process">Processo</a></li>
+      <li><a href="#contacto" data-i="nav.contact">Contacto</a></li>
+    </ul>
+    <div class="nav-r">
+      <div class="lang-t">
+        <button class="lang-b on" onclick="setLang('pt')">PT</button>
+        <button class="lang-b" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="https://wa.me/351929071925?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento%20de%20v%C3%ADdeo." class="btn-wa" target="_blank" rel="noopener">
+        <i class="ph-bold ph-whatsapp-logo"></i><span data-i="nav.cta">Orçamento</span>
+      </a>
+    </div>
+    <div class="ham" id="ham" onclick="togMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mob-menu" id="mob">
+    <a href="#portfolio" onclick="togMenu()" data-i="nav.portfolio">Portfolio</a>
+    <a href="#servicos" onclick="togMenu()" data-i="nav.services">Serviços</a>
+    <a href="#processo" onclick="togMenu()" data-i="nav.process">Processo</a>
+    <a href="#depoimentos" onclick="togMenu()">Depoimentos</a>
+    <a href="#contacto" onclick="togMenu()" data-i="nav.contact">Contacto</a>
+    <a href="https://wa.me/351929071925?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener" style="color:var(--teal)" data-i="nav.cta">Orçamento WhatsApp</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="mgrid"></div>
+  <div class="hero-c" id="hpar">
+    <span class="hlabel rv" data-i="hero.label">Produtora de Vídeo Premium — Portugal</span>
+    <h1 class="htitle rv d1">
+      <span data-sc data-i="hero.h1">Fazemos vídeos</span><br>
+      <span class="ac" data-sc data-i="hero.h2">que vendem.</span>
+    </h1>
+    <p class="hsub rv d2" data-i="hero.sub">Do conceito à entrega final — criamos conteúdo visual que capta atenção, constrói marcas e converte audiências em clientes.</p>
+    <div class="hctas rv d3">
+      <a href="https://wa.me/351929071925?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento%20de%20v%C3%ADdeo." class="btn-p" target="_blank" rel="noopener">
+        <i class="ph-bold ph-whatsapp-logo"></i><span data-i="hero.cta1">Pede o teu orçamento</span>
+      </a>
+      <a href="#portfolio" class="btn-s">
+        <i class="ph-bold ph-play-circle"></i><span data-i="hero.cta2">Ver portfolio</span>
+      </a>
+    </div>
+    <div class="hstats rv d4">
+      <div><div class="stat-n" data-count="100" data-suf="+">0+</div><div class="stat-l" data-i="hero.s1">Vídeos Produzidos</div></div>
+      <div><div class="stat-n" data-count="50" data-suf="+">0+</div><div class="stat-l" data-i="hero.s2">Clientes Satisfeitos</div></div>
+      <div><div class="stat-n" data-count="3" data-suf="x">0x</div><div class="stat-l" data-i="hero.s3">Mais Engagement</div></div>
+    </div>
+  </div>
+  <div class="hscroll"><div class="hscroll-line"></div><span data-i="hero.scroll">scroll</span></div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="si">
+    <div class="ph">
+      <span class="slabel rv">Showreel</span>
+      <h2 class="stitle rv d1">O nosso trabalho fala por si.</h2>
+      <p class="ssub rv d2">Clica em cada projecto para ver o vídeo completo no Instagram.</p>
+    </div>
+    <div class="reels-grid">
+      <a class="reel-card rv " href="https://www.instagram.com/reel/DWCLUh7CL22/" target="_blank" rel="noopener noreferrer">
+        <div class="reel-thumb" style="background:linear-gradient(135deg, #1a1a0a 0%, #2d2400 50%, #1a0a00 100%)">
+          <div class="reel-cinema-bg"></div>
+          <div class="reel-center-icon">
+            <i class="ph-bold ph-house-line"></i>
+          </div>
+          <div class="reel-hover-state">
+            <div class="reel-play-ring">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>
+            </div>
+            <span class="reel-cta-text">Ver no Instagram</span>
+          </div>
+          <div class="reel-corner-ig">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-tag">Vídeo Imobiliário</span>
+          <div class="reel-title">Da Ruína ao Sonho</div>
+          <div class="reel-arrow"><i class="ph-bold ph-arrow-up-right"></i></div>
+        </div>
+      </a>
+      <a class="reel-card rv d1" href="https://www.instagram.com/reel/DVV21WgiP9V/" target="_blank" rel="noopener noreferrer">
+        <div class="reel-thumb" style="background:linear-gradient(135deg, #0a1a1a 0%, #00242d 50%, #001a1a 100%)">
+          <div class="reel-cinema-bg"></div>
+          <div class="reel-center-icon">
+            <i class="ph-bold ph-storefront"></i>
+          </div>
+          <div class="reel-hover-state">
+            <div class="reel-play-ring">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>
+            </div>
+            <span class="reel-cta-text">Ver no Instagram</span>
+          </div>
+          <div class="reel-corner-ig">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-tag">Vídeo Publicitário</span>
+          <div class="reel-title">Sua Loja, Seu Sucesso</div>
+          <div class="reel-arrow"><i class="ph-bold ph-arrow-up-right"></i></div>
+        </div>
+      </a>
+      <a class="reel-card rv d2" href="https://www.instagram.com/reel/DVYy9CqiKkm/" target="_blank" rel="noopener noreferrer">
+        <div class="reel-thumb" style="background:linear-gradient(135deg, #1a0a1a 0%, #2d0024 50%, #1a001a 100%)">
+          <div class="reel-cinema-bg"></div>
+          <div class="reel-center-icon">
+            <i class="ph-bold ph-handbag-simple"></i>
+          </div>
+          <div class="reel-hover-state">
+            <div class="reel-play-ring">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>
+            </div>
+            <span class="reel-cta-text">Ver no Instagram</span>
+          </div>
+          <div class="reel-corner-ig">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-tag">Reels & Moda</span>
+          <div class="reel-title">Sua Roupa, Nossa Magia</div>
+          <div class="reel-arrow"><i class="ph-bold ph-arrow-up-right"></i></div>
+        </div>
+      </a>
+      <a class="reel-card rv d3" href="https://www.instagram.com/reel/DVUn4iRCNHc/" target="_blank" rel="noopener noreferrer">
+        <div class="reel-thumb" style="background:linear-gradient(135deg, #0a1a0a 0%, #002400 50%, #001a0a 100%)">
+          <div class="reel-cinema-bg"></div>
+          <div class="reel-center-icon">
+            <i class="ph-bold ph-buildings"></i>
+          </div>
+          <div class="reel-hover-state">
+            <div class="reel-play-ring">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>
+            </div>
+            <span class="reel-cta-text">Ver no Instagram</span>
+          </div>
+          <div class="reel-corner-ig">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-tag">Vídeo Imobiliário</span>
+          <div class="reel-title">Do Terreno à Realidade</div>
+          <div class="reel-arrow"><i class="ph-bold ph-arrow-up-right"></i></div>
+        </div>
+      </a>
+      <a class="reel-card rv d4" href="https://www.instagram.com/reel/DVuQPRPCEZB/" target="_blank" rel="noopener noreferrer">
+        <div class="reel-thumb" style="background:linear-gradient(135deg, #1a1500 0%, #2d2400 50%, #1a1000 100%)">
+          <div class="reel-cinema-bg"></div>
+          <div class="reel-center-icon">
+            <i class="ph-bold ph-currency-dollar-simple"></i>
+          </div>
+          <div class="reel-hover-state">
+            <div class="reel-play-ring">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>
+            </div>
+            <span class="reel-cta-text">Ver no Instagram</span>
+          </div>
+          <div class="reel-corner-ig">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-tag">Vídeo Imobiliário</span>
+          <div class="reel-title">Valorize o Seu Património</div>
+          <div class="reel-arrow"><i class="ph-bold ph-arrow-up-right"></i></div>
+        </div>
+      </a>
+      <a class="reel-card rv d5" href="https://www.instagram.com/reel/DVMcZVYCL9A/" target="_blank" rel="noopener noreferrer">
+        <div class="reel-thumb" style="background:linear-gradient(135deg, #1a0a0a 0%, #2d0000 50%, #1a0000 100%)">
+          <div class="reel-cinema-bg"></div>
+          <div class="reel-center-icon">
+            <i class="ph-bold ph-fork-knife"></i>
+          </div>
+          <div class="reel-hover-state">
+            <div class="reel-play-ring">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>
+            </div>
+            <span class="reel-cta-text">Ver no Instagram</span>
+          </div>
+          <div class="reel-corner-ig">
+            <i class="ph-bold ph-instagram-logo"></i>
+          </div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-tag">Vídeo Gastronomia</span>
+          <div class="reel-title">Provar com os Olhos</div>
+          <div class="reel-arrow"><i class="ph-bold ph-arrow-up-right"></i></div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:3rem" class="rv">
+      <a href="https://www.instagram.com/shiftcreativ3/" target="_blank" rel="noopener" class="btn-p">
+        <i class="ph-bold ph-instagram-logo"></i>
+        <span>Ver portfólio completo no Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="mgrid" style="opacity:.4"></div>
+  <div class="si">
+    <span class="slabel rv" data-i="s.label">O que fazemos</span>
+    <h2 class="stitle rv d1" data-i="s.title">Serviços que movem marcas.</h2>
+    <p class="ssub rv d2" data-i="s.sub">Cada serviço foi pensado para gerar resultados reais — mais visibilidade, mais confiança, mais clientes.</p>
+    <div class="sg">
+      <div class="sc rv"><div class="sico"><i class="ph-bold ph-device-mobile-camera"></i></div><div class="sname" data-i="s.1n">Reels & Social</div><p class="sdesc" data-i="s.1d">Reels, TikToks e stories que param o scroll e transformam seguidores em clientes. Conteúdo nativo para cada plataforma.</p></div>
+      <div class="sc rv d1"><div class="sico"><i class="ph-bold ph-film-clapperboard"></i></div><div class="sname" data-i="s.2n">Vídeo Publicitário</div><p class="sdesc" data-i="s.2d">Campanhas que convertem e ficam na memória. Da ideia criativa à produção final, contamos a história da tua marca.</p></div>
+      <div class="sc rv d2"><div class="sico"><i class="ph-bold ph-buildings"></i></div><div class="sname" data-i="s.3n">Vídeo Imobiliário</div><p class="sdesc" data-i="s.3d">Tours cinematográficos e apresentações que vendem imóveis mais rápido. Drone, interiores e empreendimentos.</p></div>
+      <div class="sc rv d3"><div class="sico"><i class="ph-bold ph-magic-wand"></i></div><div class="sname" data-i="s.4n">Motion Graphics</div><p class="sdesc" data-i="s.4d">Logos animados, intros, after-effects e animações que elevam a percepção da tua marca para outro nível.</p></div>
+      <div class="sc rv d4"><div class="sico"><i class="ph-bold ph-palette"></i></div><div class="sname" data-i="s.5n">Identidade Visual</div><p class="sdesc" data-i="s.5d">Logo, paleta de cores, tipografia e materiais gráficos que representam quem és e atraem quem queres.</p></div>
+      <div class="sc rv d5"><div class="sico"><i class="ph-bold ph-briefcase"></i></div><div class="sname" data-i="s.6n">Vídeo Corporativo</div><p class="sdesc" data-i="s.6d">Institucional, apresentação de produto e cobertura de eventos. Profissionalismo em cada frame.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo">
+  <div class="si">
+    <span class="slabel rv" data-i="pr.label">Como trabalhamos</span>
+    <h2 class="stitle rv d1" data-i="pr.title">Simples. Rápido. Sem surpresas.</h2>
+    <p class="ssub rv d2" data-i="pr.sub">Um processo claro do início ao fim para que focuses no teu negócio enquanto nós tratamos de tudo.</p>
+    <div class="ptl">
+      <div class="ps rv"><div class="pnum">01</div><div class="ptitle" data-i="pr.1t">Briefing</div><p class="pdesc" data-i="pr.1d">Ouvimos os teus objectivos, público e visão. Uma conversa rápida define tudo.</p></div>
+      <div class="ps rv d1"><div class="pnum">02</div><div class="ptitle" data-i="pr.2t">Conceito</div><p class="pdesc" data-i="pr.2d">Desenvolvemos a ideia criativa, guião e referências visuais para aprovação.</p></div>
+      <div class="ps rv d2"><div class="pnum">03</div><div class="ptitle" data-i="pr.3t">Produção</div><p class="pdesc" data-i="pr.3d">Filmagem, edição, motion e cor. Executamos com qualidade cinematográfica.</p></div>
+      <div class="ps rv d3"><div class="pnum">04</div><div class="ptitle" data-i="pr.4t">Entrega</div><p class="pdesc" data-i="pr.4d">Ficheiros optimizados para cada plataforma. Prontos a publicar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="si">
+    <span class="slabel rv" data-i="t.label">Depoimentos</span>
+    <h2 class="stitle rv d1" data-i="t.title">O que dizem os nossos clientes.</h2>
+    <div class="tg">
+      <div class="tc rv">
+        <div class="qmark">"</div>
+        <p class="ttext" data-i="t.1">A Shift Creativ3 transformou completamente a nossa presença nas redes sociais. Os reels que criaram triplicaram o nosso engagement em menos de um mês. Profissionalismo e criatividade a um nível que não esperávamos.</p>
+        <div class="tauth"><div class="tav">MC</div><div><div class="taname" data-i="t.1n">Marta Carvalho</div><div class="tarole" data-i="t.1r">Directora de Marketing, Grupo Alimentar Douro</div></div></div>
+      </div>
+      <div class="tc rv d1">
+        <div class="qmark">"</div>
+        <p class="ttext" data-i="t.2">Contratámos a Shift para o vídeo de lançamento do nosso empreendimento em Lisboa. O resultado superou todas as expectativas — vendemos 40% das fracções na semana do lançamento. O vídeo foi o factor decisivo.</p>
+        <div class="tauth"><div class="tav">JF</div><div><div class="taname" data-i="t.2n">João Ferreira</div><div class="tarole" data-i="t.2r">CEO, Ferreira Properties</div></div></div>
+      </div>
+      <div class="tc rv d2">
+        <div class="qmark">"</div>
+        <p class="ttext" data-i="t.3">Trabalhar com a Shift Creativ3 é uma experiência diferente. Entendem a nossa marca melhor do que nós próprios às vezes. Cada vídeo que produzem parece feito à medida — porque é. Recomendo sem hesitar.</p>
+        <div class="tauth"><div class="tav">AS</div><div><div class="taname" data-i="t.3n">Ana Sofia Mendes</div><div class="tarole" data-i="t.3r">Fundadora, Studio AS Wellness</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="si">
+    <div class="cg">
+      <div>
+        <span class="slabel rv" data-i="c.label">Fala connosco</span>
+        <h2 class="stitle rv d1" data-i="c.title">Começa o teu projecto hoje.</h2>
+        <p class="ssub rv d2" style="margin-bottom:2.5rem" data-i="c.sub">Preenche o formulário ou fala directamente connosco pelo WhatsApp. Respondemos em menos de 24 horas.</p>
+        <div class="rv d3">
+          <div class="cii"><i class="ph-bold ph-whatsapp-logo"></i><div><div class="cil">WhatsApp</div><div class="civ">+351 929 071 925</div></div></div>
+          <div class="cii"><i class="ph-bold ph-envelope"></i><div><div class="cil">Email</div><div class="civ">geral@shiftcreativ3.com</div></div></div>
+          <div class="cii"><i class="ph-bold ph-instagram-logo"></i><div><div class="cil">Instagram</div><div class="civ">@shiftcreativ3</div></div></div>
+          <div class="cii"><i class="ph-bold ph-map-pin"></i><div><div class="cil" data-i="c.loc">Localização</div><div class="civ">Portugal</div></div></div>
+        </div>
+      </div>
+      <div class="rv d2">
+        <form id="cform" onsubmit="sendForm(event)">
+          <div class="frow">
+            <div class="fg"><label for="fnome" data-i="f.name">Nome</label><input type="text" id="fnome" placeholder="O teu nome" required></div>
+            <div class="fg"><label for="femail">Email</label><input type="email" id="femail" placeholder="email@empresa.pt" required></div>
+          </div>
+          <div class="fg"><label for="femp" data-i="f.company">Empresa</label><input type="text" id="femp" placeholder="Nome da tua empresa"></div>
+          <div class="fg">
+            <label for="ftipo" data-i="f.type">Tipo de Projecto</label>
+            <select id="ftipo" required>
+              <option value="" data-i="f.td">Selecciona o tipo de vídeo</option>
+              <option value="Reels &amp; Social">Reels &amp; Social</option>
+              <option value="Vídeo Publicitário">Vídeo Publicitário</option>
+              <option value="Vídeo Imobiliário">Vídeo Imobiliário</option>
+              <option value="Motion Graphics">Motion Graphics</option>
+              <option value="Identidade Visual">Identidade Visual</option>
+              <option value="Vídeo Corporativo">Vídeo Corporativo</option>
+              <option value="Outro" data-i="f.other">Outro</option>
+            </select>
+          </div>
+          <div class="fg"><label for="fmsg" data-i="f.msg">Mensagem</label><textarea id="fmsg" placeholder="Conta-nos sobre o teu projecto..." required></textarea></div>
+          <button type="submit" class="btn-p fsub"><i class="ph-bold ph-paper-plane-tilt"></i><span data-i="f.send">Enviar mensagem</span></button>
+          <div id="fres" class="fmsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="si" style="text-align:center">
+    <h2 class="ctit rv" data-i="cta.pre">Pronto para criar algo <span style="color:var(--teal)" data-i="cta.accent">extraordinário?</span></h2>
+    <p class="csub rv d1" data-i="cta.sub">Fala connosco hoje. O teu próximo vídeo começa com uma conversa.</p>
+    <div class="cbtns rv d2">
+      <a href="https://wa.me/351929071925?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20projecto%20de%20v%C3%ADdeo." class="btn-p" target="_blank" rel="noopener" style="padding:1.1rem 2.5rem;font-size:.92rem">
+        <i class="ph-bold ph-whatsapp-logo"></i><span data-i="cta.wa">Fala connosco no WhatsApp</span>
+      </a>
+      <a href="https://instagram.com/shiftcreativ3" class="btn-ig" target="_blank" rel="noopener">
+        <i class="ph-bold ph-instagram-logo"></i><span data-i="cta.ig">Segue-nos no Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div class="fb">
+        <img src="logo.png" alt="Shift Creativ3" loading="lazy">
+        <p data-i="ft.about">Produtora de vídeo premium portuguesa. Criamos conteúdo visual que transforma marcas e gera resultados reais.</p>
+      </div>
+      <div>
+        <div class="fct" data-i="ft.services">Serviços</div>
+        <ul class="fl">
+          <li><a href="#servicos">Reels &amp; Social</a></li>
+          <li><a href="#servicos">Vídeo Publicitário</a></li>
+          <li><a href="#servicos">Vídeo Imobiliário</a></li>
+          <li><a href="#servicos">Motion Graphics</a></li>
+          <li><a href="#servicos">Identidade Visual</a></li>
+          <li><a href="#servicos">Vídeo Corporativo</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="fct" data-i="ft.contact">Contacto</div>
+        <ul class="fl">
+          <li><a href="https://wa.me/351929071925" target="_blank" rel="noopener">+351 929 071 925</a></li>
+          <li><a href="mailto:geral@shiftcreativ3.com">geral@shiftcreativ3.com</a></li>
+          <li><a href="https://instagram.com/shiftcreativ3" target="_blank" rel="noopener">@shiftcreativ3</a></li>
+          <li><a href="#contacto" data-i="ft.quote">Pedir orçamento</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <div class="fcp" data-i="ft.copy">© 2026 Shift Creativ3. Todos os direitos reservados.</div>
+      <div class="fsoc">
+        <a href="https://wa.me/351929071925" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph-bold ph-whatsapp-logo"></i></a>
+        <a href="https://instagram.com/shiftcreativ3" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// i18n
+const T = {
+  pt: {
+    'nav.portfolio':'Portfolio','nav.services':'Serviços','nav.process':'Processo',
+    'nav.contact':'Contacto','nav.cta':'Orçamento',
+    'hero.label':'Produtora de Vídeo Premium — Portugal',
+    'hero.h1':'Fazemos vídeos','hero.h2':'que vendem.',
+    'hero.sub':'Do conceito à entrega final — criamos conteúdo visual que capta atenção, constrói marcas e converte audiências em clientes.',
+    'hero.cta1':'Pede o teu orçamento','hero.cta2':'Ver portfolio',
+    'hero.s1':'Vídeos Produzidos','hero.s2':'Clientes Satisfeitos','hero.s3':'Mais Engagement',
+    'hero.scroll':'scroll',
+    'p.label':'Showreel','p.title':'O nosso trabalho fala por si.',
+    'p.sub':'Cada projecto é uma história. Cada frame, uma intenção.',
+    'p.c1t':'Vídeo Publicitário','p.c1n':'Campanha de Lançamento — Produto Nacional',
+    'p.c2t':'Motion Graphics','p.c2n':'Identidade Animada — Marca de Luxo',
+    'p.c3t':'Reels Social','p.c3n':'Reels Virais — Restaurante',
+    'p.c4t':'Vídeo Imobiliário','p.c4n':'Tour Virtual — Empreendimento Premium',
+    'p.c5t':'Vídeo Corporativo','p.c5n':'Institucional — Empresa Tecnológica',
+    'p.c6t':'Identidade Visual','p.c6n':'Branding Completo — Startup Alimentar',
+    's.label':'O que fazemos','s.title':'Serviços que movem marcas.',
+    's.sub':'Cada serviço foi pensado para gerar resultados reais.',
+    's.1n':'Reels & Social','s.1d':'Reels, TikToks e stories que param o scroll e transformam seguidores em clientes.',
+    's.2n':'Vídeo Publicitário','s.2d':'Campanhas que convertem e ficam na memória. Da ideia à produção final.',
+    's.3n':'Vídeo Imobiliário','s.3d':'Tours cinematográficos que vendem imóveis mais rápido.',
+    's.4n':'Motion Graphics','s.4d':'Logos animados, intros e animações que elevam a tua marca.',
+    's.5n':'Identidade Visual','s.5d':'Logo, cores e materiais gráficos que representam quem és.',
+    's.6n':'Vídeo Corporativo','s.6d':'Institucional, produto e eventos com qualidade cinematográfica.',
+    'pr.label':'Como trabalhamos','pr.title':'Simples. Rápido. Sem surpresas.',
+    'pr.sub':'Um processo claro do início ao fim.',
+    'pr.1t':'Briefing','pr.1d':'Ouvimos os teus objectivos, público e visão.',
+    'pr.2t':'Conceito','pr.2d':'Desenvolvemos a ideia criativa e referências visuais.',
+    'pr.3t':'Produção','pr.3d':'Filmagem, edição, motion e cor cinematográfica.',
+    'pr.4t':'Entrega','pr.4d':'Ficheiros optimizados para cada plataforma.',
+    't.label':'Depoimentos','t.title':'O que dizem os nossos clientes.',
+    't.1':'A Shift Creativ3 transformou completamente a nossa presença nas redes sociais. Os reels triplicaram o nosso engagement em menos de um mês.',
+    't.1n':'Marta Carvalho','t.1r':'Directora de Marketing, Grupo Alimentar Douro',
+    't.2':'Contratámos a Shift para o vídeo de lançamento em Lisboa. Vendemos 40% das fracções na semana do lançamento. O vídeo foi o factor decisivo.',
+    't.2n':'João Ferreira','t.2r':'CEO, Ferreira Properties',
+    't.3':'Trabalhar com a Shift Creativ3 é uma experiência diferente. Entendem a nossa marca melhor do que nós próprios às vezes.',
+    't.3n':'Ana Sofia Mendes','t.3r':'Fundadora, Studio AS Wellness',
+    'c.label':'Fala connosco','c.title':'Começa o teu projecto hoje.',
+    'c.sub':'Preenche o formulário ou fala directamente pelo WhatsApp. Respondemos em menos de 24 horas.',
+    'c.loc':'Localização',
+    'f.name':'Nome','f.company':'Empresa','f.type':'Tipo de Projecto',
+    'f.td':'Selecciona o tipo de vídeo','f.other':'Outro','f.msg':'Mensagem','f.send':'Enviar mensagem',
+    'f.ok':'Mensagem enviada! Entraremos em contacto em breve.','f.err':'Por favor preenche todos os campos obrigatórios.',
+    'cta.pre':'Pronto para criar algo','cta.accent':'extraordinário?',
+    'cta.sub':'Fala connosco hoje. O teu próximo vídeo começa com uma conversa.',
+    'cta.wa':'Fala connosco no WhatsApp','cta.ig':'Segue-nos no Instagram',
+    'ft.about':'Produtora de vídeo premium portuguesa. Criamos conteúdo visual que transforma marcas.',
+    'ft.services':'Serviços','ft.contact':'Contacto','ft.quote':'Pedir orçamento',
+    'ft.copy':'© 2026 Shift Creativ3. Todos os direitos reservados.',
+  },
+  en: {
+    'nav.portfolio':'Portfolio','nav.services':'Services','nav.process':'Process',
+    'nav.contact':'Contact','nav.cta':'Get Quote',
+    'hero.label':'Premium Video Production — Portugal',
+    'hero.h1':'We make videos','hero.h2':'that sell.',
+    'hero.sub':'From concept to final delivery — we create visual content that captures attention, builds brands and converts audiences into clients.',
+    'hero.cta1':'Get your quote','hero.cta2':'View portfolio',
+    'hero.s1':'Videos Produced','hero.s2':'Happy Clients','hero.s3':'More Engagement',
+    'hero.scroll':'scroll',
+    'p.label':'Showreel','p.title':'Our work speaks for itself.',
+    'p.sub':'Every project is a story. Every frame, an intention.',
+    'p.c1t':'Commercial Video','p.c1n':'Launch Campaign — National Brand',
+    'p.c2t':'Motion Graphics','p.c2n':'Animated Identity — Luxury Brand',
+    'p.c3t':'Social Reels','p.c3n':'Viral Reels — Restaurant',
+    'p.c4t':'Real Estate Video','p.c4n':'Virtual Tour — Premium Development',
+    'p.c5t':'Corporate Video','p.c5n':'Institutional — Tech Company',
+    'p.c6t':'Visual Identity','p.c6n':'Full Branding — Food Startup',
+    's.label':'What we do','s.title':'Services that move brands.',
+    's.sub':'Every service is designed to generate real results.',
+    's.1n':'Reels & Social','s.1d':'Reels, TikToks and stories that stop the scroll and turn followers into clients.',
+    's.2n':'Commercial Video','s.2d':'Campaigns that convert and are remembered.',
+    's.3n':'Real Estate Video','s.3d':'Cinematic tours that sell properties faster.',
+    's.4n':'Motion Graphics','s.4d':'Animated logos, intros and animations that elevate your brand.',
+    's.5n':'Visual Identity','s.5d':'Logo, colours and graphic materials that represent who you are.',
+    's.6n':'Corporate Video','s.6d':'Institutional, product and events with cinematic quality.',
+    'pr.label':'How we work','pr.title':'Simple. Fast. No surprises.',
+    'pr.sub':'A clear process from start to finish.',
+    'pr.1t':'Briefing','pr.1d':'We listen to your goals, audience and vision.',
+    'pr.2t':'Concept','pr.2d':'We develop the creative idea and visual references.',
+    'pr.3t':'Production','pr.3d':'Filming, editing, motion and cinematic colour grading.',
+    'pr.4t':'Delivery','pr.4d':'Files optimised for every platform. Ready to publish.',
+    't.label':'Testimonials','t.title':'What our clients say.',
+    't.1':'Shift Creativ3 completely transformed our social media presence. Their reels tripled our engagement in less than a month.',
+    't.1n':'Marta Carvalho','t.1r':'Marketing Director, Douro Food Group',
+    't.2':'We hired Shift for our Lisbon development launch video. We sold 40% of units in the launch week. The video was the decisive factor.',
+    't.2n':'João Ferreira','t.2r':'CEO, Ferreira Properties',
+    't.3':'Working with Shift Creativ3 is a different experience. They understand our brand better than we do sometimes.',
+    't.3n':'Ana Sofia Mendes','t.3r':'Founder, Studio AS Wellness',
+    'c.label':'Talk to us','c.title':'Start your project today.',
+    'c.sub':'Fill in the form or talk directly to us on WhatsApp. We reply within 24 hours.',
+    'c.loc':'Location',
+    'f.name':'Name','f.company':'Company','f.type':'Project Type',
+    'f.td':'Select video type','f.other':'Other','f.msg':'Message','f.send':'Send message',
+    'f.ok':'Message sent! We will be in touch shortly.','f.err':'Please fill in all required fields.',
+    'cta.pre':'Ready to create something','cta.accent':'extraordinary?',
+    'cta.sub':'Talk to us today. Your next video starts with a conversation.',
+    'cta.wa':'Talk to us on WhatsApp','cta.ig':'Follow us on Instagram',
+    'ft.about':'Premium Portuguese video production company. We create visual content that transforms brands.',
+    'ft.services':'Services','ft.contact':'Contact','ft.quote':'Request quote',
+    'ft.copy':'© 2026 Shift Creativ3. All rights reserved.',
+  }
+};
+
+let lang = 'pt';
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-b').forEach(b => b.classList.toggle('on', b.textContent === l.toUpperCase()));
+  document.querySelectorAll('[data-i]').forEach(el => {
+    const v = T[l][el.getAttribute('data-i')];
+    if (v) el.textContent = v;
+  });
+  document.documentElement.lang = l === 'pt' ? 'pt-PT' : 'en';
+}
+
+// Loader
+const BRAND = 'SHIFT CREATIV3';
+const ltxt = document.getElementById('loader-txt');
+let li = 0;
+function typeIt() {
+  if (li < BRAND.length) {
+    const s = document.createElement('span');
+    s.textContent = BRAND[li];
+    ltxt.appendChild(s);
+    requestAnimationFrame(() => s.style.opacity = '1');
+    li++;
+    setTimeout(typeIt, 75);
+  } else {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('gone');
+      document.body.style.overflow = '';
+      doScramble();
+    }, 380);
+  }
+}
+document.body.style.overflow = 'hidden';
+setTimeout(typeIt, 250);
+
+// Cursor
+const cdot = document.getElementById('cur-dot');
+const cring = document.getElementById('cur-ring');
+let mx = -200, my = -200, rx = -200, ry = -200;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function animC() {
+  rx += (mx-rx)*.15; ry += (my-ry)*.15;
+  cdot.style.cssText = `left:${mx}px;top:${my}px`;
+  cring.style.cssText = `left:${rx}px;top:${ry}px`;
+  requestAnimationFrame(animC);
+})();
+document.querySelectorAll('a,button,.sc,.bc,input,select,textarea').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+});
+if ('ontouchstart' in window) { cdot.style.display='none'; cring.style.display='none'; }
+
+// Scroll progress
+const spb = document.getElementById('spb');
+window.addEventListener('scroll', () => {
+  spb.style.width = (window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
+}, {passive:true});
+
+// Mobile menu
+function togMenu() { document.getElementById('mob').classList.toggle('open'); }
+
+// Reveal
+const rvObs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('vis');rvObs.unobserve(e.target);} }), {threshold:.12});
+document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+// Counters
+function animNum(el) {
+  const target = +el.dataset.count, suf = el.dataset.suf||'+', dur = 1800, t0 = performance.now();
+  (function step(now) {
+    const p = Math.min((now-t0)/dur,1), e = 1-Math.pow(1-p,3);
+    el.textContent = Math.round(e*target)+suf;
+    if(p<1) requestAnimationFrame(step);
+  })(t0);
+}
+const cntObs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){animNum(e.target);cntObs.unobserve(e.target);} }), {threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
+
+// Scramble
+const CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+function scrambleEl(el) {
+  const orig = el.textContent; let f = 0; const tot = 18;
+  (function step() {
+    if(f>=tot){el.textContent=orig;return;}
+    el.textContent = orig.split('').map((c,i)=>{
+      if(c===' ')return ' ';
+      if(f/tot>i/orig.length)return c;
+      return CH[Math.floor(Math.random()*CH.length)];
+    }).join('');
+    f++; setTimeout(step,40);
+  })();
+}
+function doScramble() {
+  document.querySelectorAll('[data-sc]').forEach((el,i)=>setTimeout(()=>scrambleEl(el),i*200));
+}
+
+// Parallax hero
+const hpar = document.getElementById('hpar');
+window.addEventListener('scroll', () => {
+  if(window.scrollY<window.innerHeight && hpar) hpar.style.transform=`translateY(${window.scrollY*.28}px)`;
+},{passive:true});
+
+// Canvas particles (desktop only)
+if(window.innerWidth>768) {
+  const cv = document.getElementById('hero-canvas');
+  const ctx = cv.getContext('2d');
+  let W,H;
+  function rsz(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;}
+  rsz(); window.addEventListener('resize',rsz);
+  const pts = Array.from({length:60},()=>({x:Math.random()*1920,y:Math.random()*1080,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.4+.4,a:Math.random()*.45+.1}));
+  (function draw() {
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x%W,p.y%H,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(71,241,228,${p.a})`;ctx.fill();
+    });
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<110){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(71,241,228,${.06*(1-d/110)})`;ctx.lineWidth=.5;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  })();
+}
+
+// Form
+function sendForm(e) {
+  e.preventDefault();
+  const n=document.getElementById('fnome').value.trim();
+  const em=document.getElementById('femail').value.trim();
+  const tp=document.getElementById('ftipo').value;
+  const mg=document.getElementById('fmsg').value.trim();
+  const res=document.getElementById('fres');
+  res.className='fmsg';
+  if(!n||!em||!tp||!mg){res.textContent=T[lang]['f.err'];res.classList.add('err');return;}
+  const emp=document.getElementById('femp').value.trim();
+  const sub=encodeURIComponent(`Orçamento - ${tp} - ${n}`);
+  const body=encodeURIComponent(`Nome: ${n}\nEmail: ${em}\nEmpresa: ${emp}\nTipo: ${tp}\n\n${mg}`);
+  window.location.href=`mailto:geral@shiftcreativ3.com?subject=${sub}&body=${body}`;
+  res.textContent=T[lang]['f.ok'];res.classList.add('ok');
+}
+</script>
+</body>
+</html>
