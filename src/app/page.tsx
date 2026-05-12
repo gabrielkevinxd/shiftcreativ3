@@ -77,7 +77,7 @@ export default function Home() {
       document.querySelectorAll(".rv").forEach((el) => rvObs.observe(el));
     }, 1000);
 
-    // Number counters
+    // Number counters — delayed past loader (~1680ms) + reveal d4 anim (1000+400+700ms)
     const cntObs = new IntersectionObserver((es) => {
       es.forEach((e) => {
         if (e.isIntersecting) {
@@ -85,16 +85,17 @@ export default function Home() {
           cntObs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
-    setTimeout(() => {
+    const cntTimer = setTimeout(() => {
       document.querySelectorAll("[data-count]").forEach((el) => cntObs.observe(el));
-    }, 1000);
+    }, 2800);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(animFrame);
+      clearTimeout(cntTimer);
       rvObs.disconnect();
       cntObs.disconnect();
     };
@@ -107,7 +108,13 @@ export default function Home() {
       const cv = canvasRef.current;
       const ctx = cv.getContext('2d');
       if (!ctx) return;
-      
+
+      const tealHex = getComputedStyle(document.documentElement).getPropertyValue('--teal').trim();
+      const tr = parseInt(tealHex.slice(1, 3), 16);
+      const tg = parseInt(tealHex.slice(3, 5), 16);
+      const tb = parseInt(tealHex.slice(5, 7), 16);
+      const tealRgb = `${tr},${tg},${tb}`;
+
       let W = 0, H = 0;
       const rsz = () => {
         W = cv.width = cv.offsetWidth;
@@ -115,38 +122,38 @@ export default function Home() {
       };
       rsz();
       window.addEventListener('resize', rsz);
-      
+
       const pts = Array.from({length: 60}, () => ({
-        x: Math.random() * 1920, 
-        y: Math.random() * 1080, 
-        vx: (Math.random() - 0.5) * 0.4, 
-        vy: (Math.random() - 0.5) * 0.4, 
-        r: Math.random() * 1.4 + 0.4, 
+        x: Math.random() * 1920,
+        y: Math.random() * 1080,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.4 + 0.4,
         a: Math.random() * 0.45 + 0.1
       }));
-      
+
       let reqId: number;
       const draw = () => {
         ctx.clearRect(0, 0, W, H);
         pts.forEach(p => {
           p.x += p.vx; p.y += p.vy;
-          if (p.x < 0) p.x = W; if (p.x > W) p.x = 0; 
+          if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
           if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
           ctx.beginPath(); ctx.arc(p.x % W, p.y % H, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(71,241,228,${p.a})`; ctx.fill();
+          ctx.fillStyle = `rgba(${tealRgb},${p.a})`; ctx.fill();
         });
         for (let i = 0; i < pts.length; i++) {
           for (let j = i + 1; j < pts.length; j++) {
             const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.sqrt(dx * dx + dy * dy);
             if (d < 110) {
               ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
-              ctx.strokeStyle = `rgba(71,241,228,${0.06 * (1 - d / 110)})`; ctx.lineWidth = 0.5; ctx.stroke();
+              ctx.strokeStyle = `rgba(${tealRgb},${0.06 * (1 - d / 110)})`; ctx.lineWidth = 0.5; ctx.stroke();
             }
           }
         }
         reqId = requestAnimationFrame(draw);
       };
-      
+
       draw();
       return () => {
         window.removeEventListener('resize', rsz);
@@ -160,12 +167,13 @@ export default function Home() {
     document.body.style.overflow = "hidden";
     const brand = "SHIFT CREATIV3";
     let li = 0;
-    
-    // Ensure loader works smoothly in React
+    let cancelled = false;
+
     const ltxt = document.getElementById("loader-txt");
-    if(!ltxt) return;
+    if (!ltxt) return;
 
     const typeIt = () => {
+      if (cancelled) return;
       if (li < brand.length && ltxt) {
         const s = document.createElement("span");
         s.textContent = brand[li];
@@ -175,6 +183,7 @@ export default function Home() {
         setTimeout(typeIt, 75);
       } else {
         setTimeout(() => {
+          if (cancelled) return;
           setLoading(false);
           document.body.style.overflow = "";
           doScramble();
@@ -182,7 +191,11 @@ export default function Home() {
       }
     };
     const tId = setTimeout(typeIt, 250);
-    return () => clearTimeout(tId);
+    return () => {
+      cancelled = true;
+      clearTimeout(tId);
+      document.body.style.overflow = "";
+    };
   }, []);
 
   const animNum = (el: HTMLElement) => {
