@@ -3,11 +3,10 @@
 import { useEffect, useState, useRef, FormEvent } from "react";
 import { T, Locale, TranslationKey } from "@/lib/translations";
 import { 
-  WhatsappLogo, PlayCircle, HouseLine, Storefront, HandbagSimple, 
-  Buildings, CurrencyDollarSimple, ForkKnife, DeviceMobileCamera, 
+  WhatsappLogo, PlayCircle, Buildings, DeviceMobileCamera, 
   FilmSlate, MagicWand, Palette, Briefcase, Envelope, 
-  InstagramLogo, MapPin, PaperPlaneTilt, ArrowUpRight 
-} from "@phosphor-icons/react/dist/ssr";
+  InstagramLogo, MapPin, PaperPlaneTilt 
+} from "@phosphor-icons/react";
 import ReelCard from "@/components/ReelCard";
 
 export default function Home() {
@@ -99,7 +98,7 @@ export default function Home() {
       rvObs.disconnect();
       cntObs.disconnect();
     };
-  }, []);
+  }, [ringPos.x, ringPos.y]);
 
   // Canvas
   useEffect(() => {
@@ -428,17 +427,17 @@ export default function Home() {
           <h2 className="stitle rv d1">{t('t.title')}</h2>
           <div className="tg">
             <div className="tc rv" onMouseEnter={handleHover(true)} onMouseLeave={handleHover(false)}>
-              <div className="qmark">"</div>
+              <div className="qmark">&quot;</div>
               <p className="ttext">{t('t.1')}</p>
               <div className="tauth"><div className="tav">MC</div><div><div className="taname">{t('t.1n')}</div><div className="tarole">{t('t.1r')}</div></div></div>
             </div>
             <div className="tc rv d1" onMouseEnter={handleHover(true)} onMouseLeave={handleHover(false)}>
-              <div className="qmark">"</div>
+              <div className="qmark">&quot;</div>
               <p className="ttext">{t('t.2')}</p>
               <div className="tauth"><div className="tav">JF</div><div><div className="taname">{t('t.2n')}</div><div className="tarole">{t('t.2r')}</div></div></div>
             </div>
             <div className="tc rv d2" onMouseEnter={handleHover(true)} onMouseLeave={handleHover(false)}>
-              <div className="qmark">"</div>
+              <div className="qmark">&quot;</div>
               <p className="ttext">{t('t.3')}</p>
               <div className="tauth"><div className="tav">AS</div><div><div className="taname">{t('t.3n')}</div><div className="tarole">{t('t.3r')}</div></div></div>
             </div>

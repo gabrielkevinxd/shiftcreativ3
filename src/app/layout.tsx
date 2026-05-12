@@ -5,6 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shiftcreativ3.com"),
   title: "Shift Creativ3 | Produção de Vídeo Profissional em Portugal",
   description: "Produção de vídeos profissionais, reels, motion graphics e identidade visual para empresas em Portugal. Aumenta o teu engajamento com vídeos que vendem.",
   keywords: "produção de vídeo portugal, vídeo marketing, reels empresas, motion graphics, vídeo publicitário portugal, agência vídeo",
