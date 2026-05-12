@@ -52,8 +52,8 @@ export default function Home() {
     };
     
     const animC = () => {
-      rx += (mx - rx) * 0.15;
-      ry += (my - ry) * 0.15;
+      rx += (mx - rx) * 0.2;
+      ry += (my - ry) * 0.2;
       setRingPos({ x: rx, y: ry });
       animFrame = requestAnimationFrame(animC);
     };
@@ -98,7 +98,8 @@ export default function Home() {
       rvObs.disconnect();
       cntObs.disconnect();
     };
-  }, [ringPos.x, ringPos.y]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Canvas
   useEffect(() => {
@@ -187,7 +188,7 @@ export default function Home() {
   const animNum = (el: HTMLElement) => {
     const target = +(el.dataset.count || 0);
     const suf = el.dataset.suf || "+";
-    const dur = 1800;
+    const dur = 1000;
     const t0 = performance.now();
     
     const step = (now: number) => {
