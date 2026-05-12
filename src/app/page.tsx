@@ -26,6 +26,7 @@ export default function Home() {
 
   // Form
   const [formMsg, setFormMsg] = useState({ text: "", type: "" });
+  const [formSending, setFormSending] = useState(false);
 
   useEffect(() => {
     // Scroll progress
@@ -236,24 +237,41 @@ export default function Home() {
 
   const handleHover = (state: boolean) => () => setIsHovering(state);
 
-  const sendForm = (e: FormEvent<HTMLFormElement>) => {
+  const sendForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const n = fd.get('fnome') as string;
-    const em = fd.get('femail') as string;
-    const emp = fd.get('femp') as string;
-    const tp = fd.get('ftipo') as string;
-    const mg = fd.get('fmsg') as string;
-    
-    if (!n || !em || !tp || !mg) {
+    const nome = fd.get('fnome') as string;
+    const email = fd.get('femail') as string;
+    const empresa = fd.get('femp') as string;
+    const tipo = fd.get('ftipo') as string;
+    const mensagem = fd.get('fmsg') as string;
+
+    if (!nome || !email || !tipo || !mensagem) {
       setFormMsg({ text: t('f.err'), type: 'err' });
       return;
     }
-    
-    const sub = encodeURIComponent(`Orçamento - ${tp} - ${n}`);
-    const body = encodeURIComponent(`Nome: ${n}\nEmail: ${em}\nEmpresa: ${emp}\nTipo: ${tp}\n\n${mg}`);
-    window.location.href = `mailto:geral@shiftcreativ3.com?subject=${sub}&body=${body}`;
-    setFormMsg({ text: t('f.ok'), type: 'ok' });
+
+    setFormSending(true);
+    setFormMsg({ text: '', type: '' });
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email, empresa, tipo, mensagem }),
+      });
+
+      if (res.ok) {
+        setFormMsg({ text: t('f.ok'), type: 'ok' });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setFormMsg({ text: t('f.errServer'), type: 'err' });
+      }
+    } catch {
+      setFormMsg({ text: t('f.errServer'), type: 'err' });
+    } finally {
+      setFormSending(false);
+    }
   };
 
   return (
@@ -497,7 +515,7 @@ export default function Home() {
                   <label htmlFor="fmsg">{t('f.msg')}</label>
                   <textarea id="fmsg" name="fmsg" placeholder={lang === 'pt' ? 'Conta-nos sobre o teu projecto...' : 'Tell us about your project...'} required onMouseEnter={handleHover(true)} onMouseLeave={handleHover(false)}></textarea>
                 </div>
-                <button type="submit" className="btn-p fsub" onMouseEnter={handleHover(true)} onMouseLeave={handleHover(false)}><PaperPlaneTilt weight="bold" /><span>{t('f.send')}</span></button>
+                <button type="submit" disabled={formSending} className="btn-p fsub" style={{opacity: formSending ? 0.7 : 1, cursor: formSending ? 'wait' : undefined}} onMouseEnter={handleHover(true)} onMouseLeave={handleHover(false)}><PaperPlaneTilt weight="bold" /><span>{formSending ? t('f.sending') : t('f.send')}</span></button>
                 <div id="fres" className={`fmsg ${formMsg.type === 'ok' ? 'ok' : formMsg.type === 'err' ? 'err' : ''}`} style={{display: formMsg.text ? 'block' : 'none'}}>{formMsg.text}</div>
               </form>
             </div>
