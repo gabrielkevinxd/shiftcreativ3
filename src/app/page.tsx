@@ -29,6 +29,7 @@ export default function Home() {
   const [formSending, setFormSending] = useState(false);
 
   useEffect(() => {
+    document.body.classList.add('custom-cursor');
     // Scroll progress
     const handleScroll = () => {
       const sp = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
@@ -93,6 +94,7 @@ export default function Home() {
     }, 2800);
 
     return () => {
+      document.body.classList.remove('custom-cursor');
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(animFrame);
