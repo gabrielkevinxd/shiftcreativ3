@@ -13,6 +13,17 @@ CREATE TABLE IF NOT EXISTS public.shift_profiles (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
+-- Criar função SECURITY DEFINER para verificar se o utilizador é admin sem causar recursão RLS
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS boolean AS $$
+BEGIN
+  RETURN EXISTS (
+    SELECT 1 FROM public.shift_profiles 
+    WHERE id = auth.uid() AND role = 'admin'
+  );
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
 -- Habilitar RLS em shift_profiles
 ALTER TABLE public.shift_profiles ENABLE ROW LEVEL SECURITY;
 
@@ -29,12 +40,7 @@ USING (auth.uid() = id);
 CREATE POLICY "Admins podem fazer tudo em perfis" 
 ON public.shift_profiles FOR ALL 
 TO authenticated 
-USING (
-    EXISTS (
-        SELECT 1 FROM public.shift_profiles 
-        WHERE id = auth.uid() AND role = 'admin'
-    )
-);
+USING (public.is_admin());
 
 -- 2. Tabela de Projetos
 CREATE TABLE IF NOT EXISTS public.shift_projects (
@@ -62,12 +68,7 @@ USING (broker_id = auth.uid());
 CREATE POLICY "Admins controlam todos os projetos" 
 ON public.shift_projects FOR ALL 
 TO authenticated 
-USING (
-    EXISTS (
-        SELECT 1 FROM public.shift_profiles 
-        WHERE id = auth.uid() AND role = 'admin'
-    )
-);
+USING (public.is_admin());
 
 -- 3. Tabela de Arquivos do Projeto
 CREATE TABLE IF NOT EXISTS public.shift_project_files (
@@ -96,12 +97,7 @@ USING (
 CREATE POLICY "Admins gerenciam arquivos" 
 ON public.shift_project_files FOR ALL 
 TO authenticated 
-USING (
-    EXISTS (
-        SELECT 1 FROM public.shift_profiles 
-        WHERE id = auth.uid() AND role = 'admin'
-    )
-);
+USING (public.is_admin());
 
 -- 4. Tabela de Seleções do Corretor
 CREATE TABLE IF NOT EXISTS public.shift_selections (
@@ -129,12 +125,7 @@ USING (
 CREATE POLICY "Admins leem todas as seleções" 
 ON public.shift_selections FOR SELECT 
 TO authenticated 
-USING (
-    EXISTS (
-        SELECT 1 FROM public.shift_profiles 
-        WHERE id = auth.uid() AND role = 'admin'
-    )
-);
+USING (public.is_admin());
 
 -- 5. Trigger para criar perfil automaticamente no login inicial se criado pelo auth
 CREATE OR REPLACE FUNCTION public.handle_new_user()
