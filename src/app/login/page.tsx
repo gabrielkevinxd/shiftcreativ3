@@ -24,6 +24,10 @@ export default function LoginPage() {
     checkUser();
   }, []);
 
+  const [isRegister, setIsRegister] = useState(false);
+  const [fullName, setFullName] = useState('');
+  const [companyName, setCompanyName] = useState('');
+
   const redirectUser = async (userId: string) => {
     try {
       const { data: profile } = await supabase
@@ -87,6 +91,49 @@ export default function LoginPage() {
     }
   };
 
+  const handleRegister = async (e: FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMsg('');
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: fullName,
+            company_name: companyName,
+          }
+        }
+      });
+
+      if (error) {
+        setErrorMsg(error.message);
+        setLoading(false);
+        return;
+      }
+
+      if (data?.user) {
+        // Cria perfil na tabela shift_profiles se o trigger não tiver concluído
+        await supabase
+          .from('shift_profiles')
+          .upsert({
+            id: data.user.id,
+            email,
+            full_name: fullName,
+            company_name: companyName,
+            role: 'broker',
+          });
+        
+        await redirectUser(data.user.id);
+      }
+    } catch (err: any) {
+      setErrorMsg('Erro ao criar conta.');
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="relative min-height-100vh flex items-center justify-center overflow-hidden bg-bg" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       {/* Grid Lines no Background */}
@@ -99,10 +146,10 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <img src="/logo.png" alt="Shift Creativ3" className="h-10 mx-auto mb-4 object-contain" style={{ height: '40px', margin: '0 auto 16px auto' }} />
           <h2 className="text-2xl font-black text-text tracking-tight uppercase" style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--text)', letterSpacing: '1px' }}>
-            Portal de Clientes
+            {isRegister ? 'Criar Conta' : 'Portal de Clientes'}
           </h2>
           <p className="text-xs text-muted mt-2" style={{ color: 'var(--muted)', fontSize: '0.78rem' }}>
-            Entra para selecionar e transferir as tuas mídias
+            {isRegister ? 'Regista-te para selecionar e transferir as tuas mídias' : 'Entra para selecionar e transferir as tuas mídias'}
           </p>
         </div>
 
@@ -113,8 +160,42 @@ export default function LoginPage() {
           </div>
         )}
 
-        {/* Formulário de Login */}
-        <form onSubmit={handleLogin} className="flex flex-col gap-5" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {/* Formulário de Login / Registro */}
+        <form onSubmit={isRegister ? handleRegister : handleLogin} className="flex flex-col gap-5" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          
+          {isRegister && (
+            <>
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-muted mb-2 block" style={{ color: 'var(--muted)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px', display: 'block' }}>
+                  Nome Completo
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  placeholder="O teu nome completo"
+                  className="w-full px-4 py-3 bg-surface-low border border-[rgba(71,241,228,0.1)] rounded focus:outline-none focus:border-teal-dark text-text text-sm transition-all"
+                  style={{ width: '100%', padding: '12px 16px', background: 'var(--color-surface-low)', border: '1px solid rgba(71,241,228,0.15)', borderRadius: '4px', color: 'var(--text)', fontSize: '0.875rem', outline: 'none' }}
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-muted mb-2 block" style={{ color: 'var(--muted)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px', display: 'block' }}>
+                  Imobiliária / Empresa (Opcional)
+                </label>
+                <input
+                  type="text"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  placeholder="Nome da tua empresa"
+                  className="w-full px-4 py-3 bg-surface-low border border-[rgba(71,241,228,0.1)] rounded focus:outline-none focus:border-teal-dark text-text text-sm transition-all"
+                  style={{ width: '100%', padding: '12px 16px', background: 'var(--color-surface-low)', border: '1px solid rgba(71,241,228,0.15)', borderRadius: '4px', color: 'var(--text)', fontSize: '0.875rem', outline: 'none' }}
+                />
+              </div>
+            </>
+          )}
+
           <div>
             <label className="text-xs font-bold uppercase tracking-wider text-muted mb-2 block" style={{ color: 'var(--muted)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px', display: 'block' }}>
               Endereço de E-mail
@@ -169,14 +250,22 @@ export default function LoginPage() {
             className="w-full btn-p mt-4 py-3 flex items-center justify-center gap-2 font-black transition-all"
             style={{ width: '100%', marginTop: '16px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1 }}
           >
-            <span>{loading ? 'A processar...' : 'Entrar na Conta'}</span>
+            <span>{loading ? 'A processar...' : (isRegister ? 'Criar Conta' : 'Entrar na Conta')}</span>
             {!loading && <ArrowRight weight="bold" size={16} />}
           </button>
         </form>
 
         <div className="mt-8 text-center border-t border-[rgba(255,255,255,0.03)] pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.04)', paddingTop: '24px' }}>
           <p className="text-xs text-muted" style={{ color: 'var(--muted)', fontSize: '0.72rem' }}>
-            Ainda não tens acesso? Fala com a equipa comercial.
+            {isRegister ? 'Já tens conta?' : 'Ainda não tens conta?'}
+            <button 
+              type="button" 
+              onClick={() => { setIsRegister(!isRegister); setErrorMsg(''); }}
+              className="text-teal font-bold hover:underline ml-1"
+              style={{ color: 'var(--teal)', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 700, marginLeft: '4px' }}
+            >
+              {isRegister ? 'Entrar aqui' : 'Criar conta aqui'}
+            </button>
           </p>
           <a href="/#contacto" className="text-xs font-bold text-teal hover:underline mt-2 block" style={{ color: 'var(--teal)', fontSize: '0.72rem', fontWeight: 700, textDecoration: 'none', display: 'block', marginTop: '8px' }}>
             Voltar para o site principal
